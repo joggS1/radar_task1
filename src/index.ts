@@ -12,12 +12,12 @@ import getArrayOfUniqueValues from "./utils/getArrayOfUniqueValues";
 
 //********************************************************************* 
 
-// const N = 10;
-// const ARRAY_OF_UNIQUE_VALUES = getArrayOfUniqueValues(N);
-// console.log(ARRAY_OF_UNIQUE_VALUES);
-// const result = getRandomElements(ARRAY_OF_UNIQUE_VALUES, 5);
-// console.log(ARRAY_OF_UNIQUE_VALUES);
-// console.log(result);
+const N = 10;
+const ARRAY_OF_UNIQUE_VALUES = getArrayOfUniqueValues(N);
+console.log(ARRAY_OF_UNIQUE_VALUES);
+const result = getRandomElements(ARRAY_OF_UNIQUE_VALUES, 5);
+console.log(ARRAY_OF_UNIQUE_VALUES);
+console.log(result + "\n\n");
 
 
 //********************************************************************* 
