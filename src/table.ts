@@ -17,12 +17,39 @@ class Table extends ATable{
      get columnsCount(): number{
         return this._columnsCount
      }
-    constructor(data:string  [][]) {
+    constructor(data:string  [][]);
+    constructor(data:  string[], rowCount?: number, columnCount?: number);
+     constructor(...args: any[])
+    {
         super();
-        this._rowsCount = data.length
-        this._columnsCount = data[0].length
-        this._data = data
-        this.maxLength = getElMaxLenght(data)
+            if(args.length == 1 && typeof args[0] === 'object') {
+                this._data = args[0]
+                this._rowsCount = this._data.length
+                this._columnsCount = this._data[0].length
+                this.maxLength = getElMaxLenght(this._data)
+            }
+            else if(args.length == 3, args[1] !== undefined && args[2] !== undefined){
+                this._data = []
+                let temp:string[] = args[0].slice(0)
+                console.log(args[0])
+                console.log(temp)
+                for(let i:number = 0; i<args[1]; i ++){
+                    this._data[i] = []
+                    for(let j:number = 0; j<args[2]; j ++){
+                        this._data[i][j] = temp[i*args[2]+j]
+                        
+                    }
+                    
+                }
+                console.log(this._data)
+                this.maxLength = getElMaxLenght(this._data)
+                this._rowsCount = args[1]
+                this._columnsCount = args[2]
+            }
+            else {
+                throw new Error('Undefined constructor.');
+            }
+            
     }
 
     deleteRow(rowNumber: number, data: (string[] | boolean)): boolean {
