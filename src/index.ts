@@ -12,12 +12,12 @@ import getArrayOfUniqueValues from "./utils/getArrayOfUniqueValues";
 
 //********************************************************************* 
 
-// const N = 10;
-// const ARRAY_OF_UNIQUE_VALUES = getArrayOfUniqueValues(N);
-// console.log(ARRAY_OF_UNIQUE_VALUES);
-// const result = getRandomElements(ARRAY_OF_UNIQUE_VALUES, 5);
-// console.log(ARRAY_OF_UNIQUE_VALUES);
-// console.log(result);
+const N = 10;
+const ARRAY_OF_UNIQUE_VALUES = getArrayOfUniqueValues(N);
+console.log(ARRAY_OF_UNIQUE_VALUES);
+const result = getRandomElements(ARRAY_OF_UNIQUE_VALUES, 5);
+console.log(ARRAY_OF_UNIQUE_VALUES);
+console.log(result + "\n\n");
 
 
 //********************************************************************* 
@@ -34,6 +34,7 @@ table.deleteRow(5, row); // заменить пятую строку на row
 table.print();
 table.deleteRow(4, true); // удалить четвертую строку
 table.print();
+<<<<<<< HEAD
 const tableArr2: string[] = ['№', 'Группа', 'Имя', 'Фамилия', 'Оценка',
 '1', 'И903Б', 'Никита', 'Лукин','5',
 '2', 'И903Б', 'Иван', 'Алкон','5',
@@ -41,3 +42,5 @@ const tableArr2: string[] = ['№', 'Группа', 'Имя', 'Фамилия', 
 '4', 'И903Б', 'Евгений', 'Гаврилюк','2'];
 const table2 = new Table(tableArr2)
 table2.print();
+=======
+>>>>>>> ee2b3ad47520a55a8b90e571fa227a95ec6659e2
