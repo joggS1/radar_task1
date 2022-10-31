@@ -3,7 +3,7 @@ import getElMaxLenght from "./utils/getElMaxLenght";
 abstract class ATable{
     
     abstract print(): void 
-    abstract deleteRow(rowNumber: number, data: (string[] | boolean)): boolean
+    abstract deleteRow(rowNumber: number, data?: string[] ): boolean
 }
 
 class Table extends ATable{
@@ -18,12 +18,12 @@ class Table extends ATable{
         return this._columnsCount
      }
     constructor(data:string  [][]);
-    constructor(data:  string[], rowCount?: number, columnCount?: number);
+    constructor(data:  string[], rowCount: number, columnCount: number);
      constructor(...args: any[])
     {
         super();
             if(args.length == 1 && typeof args[0] === 'object') {
-                this._data = args[0]
+                this._data = args[0].slice(0)
                 this._rowsCount = this._data.length
                 this._columnsCount = this._data[0].length
                 this.maxLength = getElMaxLenght(this._data)
@@ -31,8 +31,6 @@ class Table extends ATable{
             else if(args.length == 3, args[1] !== undefined && args[2] !== undefined){
                 this._data = []
                 let temp:string[] = args[0].slice(0)
-                console.log(args[0])
-                console.log(temp)
                 for(let i:number = 0; i<args[1]; i ++){
                     this._data[i] = []
                     for(let j:number = 0; j<args[2]; j ++){
@@ -41,7 +39,6 @@ class Table extends ATable{
                     }
                     
                 }
-                console.log(this._data)
                 this.maxLength = getElMaxLenght(this._data)
                 this._rowsCount = args[1]
                 this._columnsCount = args[2]
@@ -52,11 +49,11 @@ class Table extends ATable{
             
     }
 
-    deleteRow(rowNumber: number, data: (string[] | boolean)): boolean {
+    deleteRow(rowNumber: number, data?: string[] ): boolean {
         if(rowNumber - 1  >= this._data.length){
             return false
         }
-        if(typeof data === 'boolean'){
+        if(typeof data === 'undefined'){
             this._data.splice(rowNumber-1, 1);
             this._rowsCount -= 1
             return true
